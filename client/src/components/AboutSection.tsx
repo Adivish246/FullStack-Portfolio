@@ -155,7 +155,9 @@ export default function AboutSection() {
                     }}
                   ></div>
                   <div className="text-center relative z-10">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-r from-[#8a2be2] to-[#00ffff] mx-auto mb-4 flex items-center justify-center text-3xl font-bold text-white">AV</div>
+                    <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-[#8a2be2]">
+                      <img src="/attached_assets/profile-pic.jpg" alt="Aditya Vishwakarma" className="w-full h-full object-cover" />
+                    </div>
                     <h3 className="text-xl font-['Space_Grotesk'] font-bold text-white mb-2">Aditya Vishwakarma</h3>
                     <p className="text-gray-300 mb-4">Full Stack Developer</p>
                     <div className="flex justify-center space-x-3">

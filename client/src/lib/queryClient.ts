@@ -8,11 +8,11 @@ export const queryClient = new QueryClient({
   },
 });
 
-export async function apiRequest<T>(
+export async function apiRequest<TResponse = any, TBody = any>(
   method: string,
   endpoint: string,
-  data?: any
-): Promise<T> {
+  body?: TBody
+): Promise<TResponse> {
   const options: RequestInit = {
     method,
     headers: {
@@ -20,8 +20,8 @@ export async function apiRequest<T>(
     },
   };
 
-  if (data) {
-    options.body = JSON.stringify(data);
+  if (body) {
+    options.body = JSON.stringify(body);
   }
 
   const response = await fetch(endpoint, options);

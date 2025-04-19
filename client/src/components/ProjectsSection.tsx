@@ -13,6 +13,13 @@ export default function ProjectsSection() {
   // Fetch projects from the database API
   const { data: projects, isLoading, error } = useQuery<Project[]>({
     queryKey: ['/api/projects'],
+    queryFn: async () => {
+      const response = await fetch('/api/projects');
+      if (!response.ok) {
+        throw new Error('Failed to fetch projects');
+      }
+      return response.json();
+    },
     staleTime: 60 * 1000, // 1 minute
   });
 

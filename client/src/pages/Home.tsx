@@ -15,25 +15,28 @@ export default function Home() {
     });
 
     // Set smooth scrolling behavior
+    const handleClick = (e: Event) => {
+      e.preventDefault();
+      const anchor = e.currentTarget as HTMLAnchorElement;
+      const href = anchor.getAttribute('href') || '';
+      const target = document.querySelector(href);
+      
+      if (target) {
+        window.scrollTo({
+          top: (target as HTMLElement).offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    };
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const href = this.getAttribute('href') || '';
-        const target = document.querySelector(href);
-        
-        if (target) {
-          window.scrollTo({
-            top: (target as HTMLElement).offsetTop,
-            behavior: 'smooth'
-          });
-        }
-      });
+      anchor.addEventListener('click', handleClick as EventListener);
     });
 
     return () => {
       // Clean up event listeners
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.removeEventListener('click', () => {});
+        anchor.removeEventListener('click', handleClick as EventListener);
       });
     };
   }, []);

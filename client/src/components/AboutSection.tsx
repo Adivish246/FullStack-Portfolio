@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import profilePic from "../assets/profile.jpg";
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -156,19 +157,34 @@ export default function AboutSection() {
                   ></div>
                   <div className="text-center relative z-10">
                     <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-[#8a2be2]">
-                      <img src="/attached_assets/profile-pic.jpg" alt="Aditya Vishwakarma" className="w-full h-full object-cover" />
+                      <img src={profilePic} alt="Aditya Vishwakarma" className="w-full h-full object-cover" />
                     </div>
                     <h3 className="text-xl font-['Space_Grotesk'] font-bold text-white mb-2">Aditya Vishwakarma</h3>
                     <p className="text-gray-300 mb-4">Full Stack Developer</p>
-                    <div className="flex justify-center space-x-3">
-                      <a href="#" className="w-8 h-8 rounded-full bg-[#16213e] flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                        <i className="fab fa-github text-gray-300"></i>
+                    <div className="flex justify-center space-x-4">
+                      <a 
+                        href="https://github.com/Adivish246" 
+                        className="w-10 h-10 rounded-full bg-[#16213e] flex items-center justify-center group relative overflow-hidden transform hover:scale-110 transition-all duration-300 hover:shadow-[0_0_15px_rgba(138,43,226,0.5)]"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#8a2be2] to-[#00ffff] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 border-2 border-transparent bg-gradient-to-r from-[#8a2be2] to-[#8a2be2] rounded-full opacity-0 group-hover:opacity-50 transition-opacity duration-300" style={{ background: 'linear-gradient(45deg, #8a2be2, #00ffff) border-box', WebkitMask: 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }}></div>
+                        <i className="fab fa-github text-gray-300 group-hover:text-white relative z-10 text-lg transform group-hover:rotate-12 transition-all duration-300"></i>
                       </a>
-                      <a href="#" className="w-8 h-8 rounded-full bg-[#16213e] flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                        <i className="fab fa-linkedin-in text-gray-300"></i>
+                      <a 
+                        href="https://www.linkedin.com/in/aditya-vishwakarmaa-823340336" 
+                        className="w-10 h-10 rounded-full bg-[#16213e] flex items-center justify-center group relative overflow-hidden transform hover:scale-110 transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,255,255,0.5)]"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#00ffff] to-[#39ff14] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 border-2 border-transparent bg-gradient-to-r from-[#39ff14] to-[#8a2be2] rounded-full opacity-0 group-hover:opacity-50 transition-opacity duration-300" style={{ background: 'linear-gradient(45deg, #00ffff, #39ff14) border-box', WebkitMask: 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }}></div>
+                        <i className="fab fa-linkedin-in text-gray-300 group-hover:text-white relative z-10 text-lg transform group-hover:rotate-12 transition-all duration-300"></i>
                       </a>
-                      <a href="#" className="w-8 h-8 rounded-full bg-[#16213e] flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                        <i className="fas fa-envelope text-gray-300"></i>
+                      <a 
+                        href="mailto:adityavishwakarma11234@gmail.com" 
+                        className="w-10 h-10 rounded-full bg-[#16213e] flex items-center justify-center group relative overflow-hidden transform hover:scale-110 transition-all duration-300 hover:shadow-[0_0_15px_rgba(57,255,20,0.5)]"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#39ff14] to-[#8a2be2] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 border-2 border-transparent bg-gradient-to-r from-[#39ff14] to-[#8a2be2] rounded-full opacity-0 group-hover:opacity-50 transition-opacity duration-300" style={{ background: 'linear-gradient(45deg, #39ff14, #8a2be2) border-box', WebkitMask: 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }}></div>
+                        <i className="fas fa-envelope text-gray-300 group-hover:text-white relative z-10 text-lg transform group-hover:rotate-12 transition-all duration-300"></i>
                       </a>
                     </div>
                   </div>

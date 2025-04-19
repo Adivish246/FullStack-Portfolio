@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1681881600000,
+      "tag": "0002_update_projects",
+      "breakpoints": true
+    }
+  ]
+} 

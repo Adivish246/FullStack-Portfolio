@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import profilePic from "../assets/profile.jpg";
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -170,11 +171,12 @@ export default function HeroSection() {
             ></div>
             <div className="absolute inset-4 rounded-full bg-[#16213e] border-2 border-[#00ffff]/50 flex items-center justify-center overflow-hidden">
               <img 
-                src="/attached_assets/profile-pic.jpg" 
+                src={profilePic}
                 alt="Aditya Vishwakarma" 
-                className="w-full h-full object-cover rounded-full p-2"
+                className="w-[100%] h-[190%] object-cover rounded-full p-0"
                 style={{
-                  filter: "drop-shadow(0 0 10px rgba(0, 255, 255, 0.5))"
+                  filter: "drop-shadow(0 0 10px rgba(0, 255, 255, 0.5))",
+                  objectPosition: "center 50%"
                 }}
               />
             </div>

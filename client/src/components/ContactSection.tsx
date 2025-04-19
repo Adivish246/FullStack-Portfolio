@@ -61,10 +61,11 @@ export default function ContactSection() {
   async function onSubmit(data: ContactFormValues) {
     setIsSubmitting(true);
     try {
-      await apiRequest("/api/contact", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
+      await apiRequest<void, ContactFormValues>(
+        "POST",
+        "/api/contact",
+        data
+      );
       
       toast({
         title: "Message sent!",
@@ -94,7 +95,7 @@ export default function ContactSection() {
       scrollTrigger: {
         trigger: titleRef.current,
         start: "top bottom-=100",
-        toggleActions: "play none none reverse"
+        toggleActions: "play none none none"
       },
       y: 50,
       opacity: 0,
@@ -109,12 +110,12 @@ export default function ContactSection() {
         scrollTrigger: {
           trigger: item,
           start: "top bottom-=100",
-          toggleActions: "play none none reverse"
+          toggleActions: "play none none none"
         },
         y: 30,
         opacity: 0,
         duration: 0.8,
-        delay: index * 0.2,
+        delay: 0.2 * index,
         ease: "power3.out"
       });
       
@@ -126,7 +127,7 @@ export default function ContactSection() {
       scrollTrigger: {
         trigger: formRef.current,
         start: "top bottom-=100",
-        toggleActions: "play none none reverse"
+        toggleActions: "play none none none"
       },
       y: 30,
       opacity: 0,
@@ -174,7 +175,7 @@ export default function ContactSection() {
           {/* Contact methods */}
           <div ref={contactItemsRef} className="w-full md:w-1/2 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 gap-6">
             <a 
-              href="mailto:contact@example.com" 
+              href="mailto:adityavishwakarma11234@gmail.com" 
               className="contact-item group flex flex-col items-center p-6 bg-[#1a1a2e]/80 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-[#00ffff] transition-all duration-300 relative overflow-hidden"
               style={{
                 boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)"
@@ -202,71 +203,49 @@ export default function ContactSection() {
               >
                 Email
               </h3>
-              <p className="text-gray-400 text-center group-hover:text-gray-300 transition-colors duration-300">contact@example.com</p>
+              <p className="text-gray-400 text-center group-hover:text-gray-300 transition-colors duration-300">adityavishwakarma11234@gmail.com</p>
             </a>
             
             <a 
-              href="#" 
-              className="contact-item group flex flex-col items-center p-6 bg-[#1a1a2e]/80 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-[#8a2be2] transition-all duration-300 relative overflow-hidden"
+              href="https://github.com/Adivish246" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-item group flex flex-col items-center p-6 rounded-xl border border-gray-800 hover:border-[#8a2be2] transition-all duration-500 relative overflow-hidden z-20"
               style={{
-                boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)"
+                boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)",
+                transform: "translateZ(0)",
+                backfaceVisibility: "hidden",
+                background: "rgba(26, 26, 46, 1)"
               }}
             >
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 bg-[#8a2be2]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Background overlay */}
+              <div className="absolute inset-0 bg-[#1a1a2e] opacity-100 z-0"></div>
               
-              {/* Shimmer effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-[#8a2be2]/10 to-transparent"></div>
-              
-              <div 
-                className="contact-icon w-16 h-16 flex items-center justify-center bg-[#8a2be2]/20 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300 relative z-10"
+              {/* Hover glow effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out z-10"
                 style={{
-                  boxShadow: "0 0 15px rgba(138, 43, 226, 0.3)"
+                  background: "radial-gradient(circle at center, rgba(138, 43, 226, 0.15) 0%, transparent 70%)",
+                  boxShadow: "inset 0 0 30px rgba(138, 43, 226, 0.3)"
                 }}
-              >
-                <i className="fab fa-github text-2xl text-[#8a2be2]"></i>
+              ></div>
+              
+              {/* Content wrapper */}
+              <div className="relative z-20 flex flex-col items-center">
+                <div 
+                  className="contact-icon w-16 h-16 flex items-center justify-center bg-[#8a2be2]/20 rounded-full mb-4 transform transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:bg-[#8a2be2]/30"
+                  style={{
+                    boxShadow: "0 0 15px rgba(138, 43, 226, 0.3)"
+                  }}
+                >
+                  <i className="fab fa-github text-2xl text-[#8a2be2] transition-all duration-500 ease-in-out group-hover:text-[#8a2be2] group-hover:filter group-hover:drop-shadow-[0_0_8px_rgba(138,43,226,0.8)]"></i>
+                </div>
+                <h3 
+                  className="text-xl font-['Space_Grotesk'] font-medium text-white mb-2 transition-all duration-500 ease-in-out group-hover:text-[#8a2be2] group-hover:filter group-hover:drop-shadow-[0_0_8px_rgba(138,43,226,0.8)]"
+                >
+                  GitHub
+                </h3>
+                <p className="text-gray-400 text-center transition-colors duration-500 ease-in-out group-hover:text-gray-300">github.com/Adivish246</p>
               </div>
-              <h3 
-                className="text-xl font-['Space_Grotesk'] font-medium text-white mb-2 group-hover:text-[#8a2be2] transition-colors duration-300"
-                style={{
-                  textShadow: "0 0 10px rgba(138, 43, 226, 0)"
-                }}
-              >
-                GitHub
-              </h3>
-              <p className="text-gray-400 text-center group-hover:text-gray-300 transition-colors duration-300">github.com/adityav</p>
-            </a>
-            
-            <a 
-              href="#" 
-              className="contact-item group flex flex-col items-center p-6 bg-[#1a1a2e]/80 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-[#39ff14] transition-all duration-300 relative overflow-hidden"
-              style={{
-                boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)"
-              }}
-            >
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 bg-[#39ff14]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              {/* Shimmer effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-[#39ff14]/10 to-transparent"></div>
-              
-              <div 
-                className="contact-icon w-16 h-16 flex items-center justify-center bg-[#39ff14]/20 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300 relative z-10"
-                style={{
-                  boxShadow: "0 0 15px rgba(57, 255, 20, 0.3)"
-                }}
-              >
-                <i className="fab fa-linkedin-in text-2xl text-[#39ff14]"></i>
-              </div>
-              <h3 
-                className="text-xl font-['Space_Grotesk'] font-medium text-white mb-2 group-hover:text-[#39ff14] transition-colors duration-300"
-                style={{
-                  textShadow: "0 0 10px rgba(57, 255, 20, 0)"
-                }}
-              >
-                LinkedIn
-              </h3>
-              <p className="text-gray-400 text-center group-hover:text-gray-300 transition-colors duration-300">linkedin.com/in/adityav</p>
             </a>
           </div>
           
@@ -274,7 +253,7 @@ export default function ContactSection() {
           <div ref={formRef} className="w-full md:w-1/2">
             <div className="p-6 md:p-8 bg-[#1a1a2e]/80 backdrop-blur-sm rounded-xl border border-gray-800 relative overflow-hidden transition-all duration-300 hover:border-[#8a2be2]"
               style={{
-                boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)"
+                boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)" 
               }}
             >
               {/* Subtle background glow */}

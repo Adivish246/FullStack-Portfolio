@@ -2,6 +2,7 @@ import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertProjectSchema, insertContactMessageSchema } from "@shared/schema";
+import { sendContactEmail } from "./services/email";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -115,11 +116,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
+      // Save to database
       const message = await storage.createContactMessage(validation.data);
+      
+      // Send email notification
+      await sendContactEmail(validation.data);
+      
       res.status(201).json(message);
     } catch (error) {
-      console.error("Error creating contact message:", error);
-      res.status(500).json({ error: "Failed to create contact message" });
+      console.error("Error processing contact message:", error);
+      res.status(500).json({ error: "Failed to process contact message" });
     }
   });
 

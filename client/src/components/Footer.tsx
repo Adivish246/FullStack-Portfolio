@@ -57,45 +57,44 @@ export default function Footer() {
           
           <div ref={socialIconsRef} className="flex space-x-4">
             <a 
-              href="#" 
-              className="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-[#1a1a2e] border border-gray-700 text-gray-400 hover:text-[#8a2be2] hover:border-[#8a2be2] transition-all duration-300"
+              href="https://github.com/Adivish246" 
+              className="social-icon w-12 h-12 flex items-center justify-center rounded-full bg-[#1a1a2e] group relative overflow-hidden transform hover:scale-110 transition-all duration-300"
               style={{
-                overflow: "hidden",
                 position: "relative"
               }}
             >
-              <span className="absolute inset-0 opacity-0 hover:opacity-20 bg-[#8a2be2]/20"></span>
-              <i className="fab fa-github relative z-10"></i>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#8a2be2] to-[#00ffff] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 border border-[#8a2be2] rounded-full opacity-30 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#8a2be2] to-[#00ffff] rounded-full opacity-0 group-hover:opacity-30 blur-xl transition-all duration-300 group-hover:scale-105"></div>
+              <i className="fab fa-github text-gray-400 group-hover:text-white relative z-10 text-xl transform group-hover:rotate-12 transition-all duration-300"></i>
             </a>
             
             <a 
-              href="#" 
-              className="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-[#1a1a2e] border border-gray-700 text-gray-400 hover:text-[#00ffff] hover:border-[#00ffff] transition-all duration-300"
+              href="https://www.linkedin.com/in/aditya-vishwakarmaa-823340336" 
+              className="social-icon w-12 h-12 flex items-center justify-center rounded-full bg-[#1a1a2e] group relative overflow-hidden transform hover:scale-110 transition-all duration-300"
               style={{
-                overflow: "hidden",
                 position: "relative"
               }}
             >
-              <span className="absolute inset-0 opacity-0 hover:opacity-20 bg-[#00ffff]/20"></span>
-              <i className="fab fa-linkedin-in relative z-10"></i>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00ffff] to-[#39ff14] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 border border-[#00ffff] rounded-full opacity-30 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#00ffff] to-[#39ff14] rounded-full opacity-0 group-hover:opacity-30 blur-xl transition-all duration-300 group-hover:scale-105"></div>
+              <i className="fab fa-linkedin-in text-gray-400 group-hover:text-white relative z-10 text-xl transform group-hover:rotate-12 transition-all duration-300"></i>
             </a>
             
             <a 
-              href="#" 
-              className="social-icon w-10 h-10 flex items-center justify-center rounded-full bg-[#1a1a2e] border border-gray-700 text-gray-400 hover:text-[#39ff14] hover:border-[#39ff14] transition-all duration-300"
+              href="mailto:adityavishwakarma11234@gmail.com" 
+              className="social-icon w-12 h-12 flex items-center justify-center rounded-full bg-[#1a1a2e] group relative overflow-hidden transform hover:scale-110 transition-all duration-300"
               style={{
-                overflow: "hidden",
                 position: "relative"
               }}
             >
-              <span className="absolute inset-0 opacity-0 hover:opacity-20 bg-[#39ff14]/20"></span>
-              <i className="fas fa-envelope relative z-10"></i>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#39ff14] to-[#8a2be2] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 border border-[#39ff14] rounded-full opacity-30 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#39ff14] to-[#8a2be2] rounded-full opacity-0 group-hover:opacity-30 blur-xl transition-all duration-300 group-hover:scale-105"></div>
+              <i className="fas fa-envelope text-gray-400 group-hover:text-white relative z-10 text-xl transform group-hover:rotate-12 transition-all duration-300"></i>
             </a>
           </div>
-        </div>
-        
-        <div className="mt-6 pt-6 border-t border-gray-800 text-center text-gray-500 text-sm">
-          <p>Crafted with <span className="text-red-500">❤</span> and lots of neon glow</p>
         </div>
       </div>
     </footer>

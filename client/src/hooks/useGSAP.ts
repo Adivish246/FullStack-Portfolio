@@ -4,12 +4,25 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+type ScrollTriggerParams = {
+  trigger?: string | Element;
+  start?: string;
+  end?: string;
+  scrub?: boolean | number;
+  markers?: boolean;
+  toggleActions?: string;
+  pin?: boolean | string | Element;
+  pinSpacing?: boolean | string;
+  anticipatePin?: number;
+  [key: string]: any;
+};
+
 interface UseGSAPOptions {
   animation: gsap.TweenVars;
-  trigger?: gsap.ScrollTriggerVars;
+  trigger?: ScrollTriggerParams;
 }
 
-export function useGSAP<T extends HTMLElement>(options: UseGSAPOptions) {
+export function useGSAPAnimation<T extends HTMLElement>(options: UseGSAPOptions) {
   const elementRef = useRef<T>(null);
   
   useEffect(() => {
@@ -21,10 +34,10 @@ export function useGSAP<T extends HTMLElement>(options: UseGSAPOptions) {
       animation = gsap.from(elementRef.current, {
         ...options.animation,
         scrollTrigger: {
-          trigger: elementRef.current,
           start: "top bottom-=100",
           toggleActions: "play none none reverse",
-          ...options.trigger
+          ...options.trigger,
+          trigger: elementRef.current
         }
       });
     } else {
@@ -97,4 +110,13 @@ export function use3DCardEffect<T extends HTMLElement>() {
   }, []);
   
   return cardRef;
+}
+
+export function useGSAP(callback: () => void, deps: any[] = []) {
+  useEffect(() => {
+    callback();
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, deps);
 }

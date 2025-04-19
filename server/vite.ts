@@ -7,7 +7,7 @@ import viteConfig from "../vite.config";
 
 const viteLogger = createLogger();
 
-function log(message: string, source = "express") {
+export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
     hour: "numeric",
     minute: "2-digit",
